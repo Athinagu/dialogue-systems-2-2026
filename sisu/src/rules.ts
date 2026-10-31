@@ -69,6 +69,9 @@ export const rules: Rules = {
       for (const move of is.shared.lu!.moves) {
         if (move.type === "ask") {
           const q = move.content;
+          if (is.shared.qud.some((existing) => objectsEqual(existing, q))) {
+            return;
+          }
           return () => ({
             ...is,
             shared: {
@@ -330,4 +333,24 @@ export const rules: Rules = {
       });
     }
   },
+
+  /** lab 2 tasks 2a and 2b */
+  select_negative_understanding: ({ is }) => {
+    if (
+      is.shared.lu?.speaker === "usr" &&
+      is.shared.lu.moves.length === 0 &&
+      is.next_moves.length === 0
+    ) {
+      const question = is.shared.qud[0];
+      return () => ({
+        ...is,
+        next_moves: [
+          ...is.next_moves,
+          { type: "icm:sem*neg", content: null },
+          ...(question ? [{ type: "ask" as const, content: question }] : [])
+        ],
+      });
+    }
+  },
 };
+
