@@ -352,5 +352,28 @@ export const rules: Rules = {
       });
     }
   },
+
+  /** lab 2 VG-A */
+  select_negative_contact: ({ is }) => {
+    if (
+      is.shared.lu?.speaker === "usr" &&
+      is.shared.lu.moves.some(
+        (move) => move.type === "contact_failure"
+      ) &&
+      is.next_moves.length === 0
+    ) {
+      const question = is.shared.qud[0];
+      return () => ({
+        ...is,
+        next_moves: [
+          ...is.next_moves,
+          { type: "icm:con*neg", content: null },
+          ...(question
+            ? [{ type: "ask" as const, content: question }]
+            : []),
+          ],
+      });
+    }
+  },
 };
 

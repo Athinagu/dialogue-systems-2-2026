@@ -55,9 +55,16 @@ const nluMapping: NLUMapping = {
       content: "tuesday",
     },
   ],
+  "[inaudible]": [
+    {
+      type: "contact_failure",
+      content: null,
+    },
+  ],
 };
 const nlgMapping: NLGMapping = [
   [{ type: "icm:sem*neg", content: null }, "Sorry, I don't understand."],
+  [{ type: "icm:con*neg", content: null }, "Sorry, I didn't hear you."],
   [{ type: "ask", content: WHQ("booking_day") }, "Which day?"],
   [{ type: "ask", content: WHQ("booking_course") }, "Which course?"],
   [{ type: "greet", content: null }, "Hello! You can ask me anything!"],

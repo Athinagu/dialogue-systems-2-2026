@@ -28,7 +28,7 @@ export type Question = WhQuestion;
 type WhQuestion = { type: "whq"; predicate: string };
 
 interface OtherMove {
-  type: "greet" | "request" | "icm:sem*neg";
+  type: "greet" | "request" | "icm:sem*neg" | "contact_failure" | "icm:con*neg";
   content: null | string;
 }
 interface AnswerMove {

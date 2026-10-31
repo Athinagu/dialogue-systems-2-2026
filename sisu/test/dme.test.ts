@@ -198,5 +198,15 @@ describe("DME tests", () => {
       { speaker: "sys", message: "The lecture is in G212." },
     ]);
   });
+
+  describe("lab 2 VG-A", () => {
+    runTest([
+      { speaker: "sys", message: "Hello! You can ask me anything!" },
+      { speaker: "usr", message: "Where is the lecture?" },
+      { speaker: "sys", message: "Which day?" },
+      { speaker: "usr", message: "[inaudible]" },
+      { speaker: "sys", message: "Sorry, I didn't hear you. Which day?" },
+    ]);
+  });
 });
   
