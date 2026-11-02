@@ -1,0 +1,16 @@
+{
+  "name": "xstate-backend",
+  "packageManager": "yarn@3.6.3",
+  "dependencies": {
+    "@types/node": "^22.7.2",
+    "ws": "^8.22.1",
+    "xstate": "^5.22.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.18.2",
+    "esbuild": "^0.25.10",
+    "tsx": "^4.23.15",
+    "typescript": "^5.2.2",
+    "typescript-language-server": "^3.3.2"
+  }
+}
